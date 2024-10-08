@@ -110,7 +110,7 @@
                 <Label x:Name="Gos_Label" Content="Гос номер" HorizontalAlignment="Left" Height="43" Margin="27,163,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
                 <Label x:Name="ColorAuto_Label" Content="Цвет автомобиля" HorizontalAlignment="Left" Height="42" Margin="27,232,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
             </Grid>
-            <Button x:Name="Button_Data_Auto_Add" Content="Добавить данные автомобиля" HorizontalAlignment="Center" Height="56" Margin="0,10,0,0" VerticalAlignment="Top" Width="1200" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Add_WindowData_Click">
+            <Button x:Name="Button_Data_Auto_Add" Content="Добавить данные автомобиля" HorizontalAlignment="Center" Height="56" Margin="0,43,0,0" VerticalAlignment="Top" Width="1147" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Add_WindowData_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
