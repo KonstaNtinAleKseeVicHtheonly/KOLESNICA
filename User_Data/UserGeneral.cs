@@ -29,7 +29,7 @@ namespace DataCommandTest.User_Data
             string DateM = fields.Dequeue().Text;
             string DateD = fields.Dequeue().Text;
             DateOfBirth = DateY != string.Empty ? DateTime.ParseExact($"{DateY}-{DateM}-{DateD}", "yyyy-M-d", null) : null;
-            PlaceOfBirth = fields.Dequeue().Text ?? "NULL";
+            PlaceOfBirth = fields.Dequeue().Text ?? null;
         }
         public override void SetData(Queue<Label> fields)
         {

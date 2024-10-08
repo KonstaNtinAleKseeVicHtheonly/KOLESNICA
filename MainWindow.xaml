@@ -21,7 +21,7 @@
                 <GradientStop Color="#FF262626" Offset="0.623"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid x:Name="Grid_1" HorizontalAlignment="Center" Height="476" Grid.Row="1" VerticalAlignment="Center" Width="1238" Visibility="Hidden">
+        <Grid x:Name="Grid_1" HorizontalAlignment="Center" Height="476" Grid.Row="1" VerticalAlignment="Center" Width="1238">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="175*"/>
                 <ColumnDefinition Width="1063*"/>
@@ -68,7 +68,7 @@
                 <ColumnDefinition Width="175*"/>
                 <ColumnDefinition Width="1063*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Add_Contacts" Content="Добавить средство связи" HorizontalAlignment="Left" Height="56" Margin="39,22,0,0" VerticalAlignment="Top" Width="1160" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Grid.Row="1" Grid.ColumnSpan="2" Click="Add_Contacts_Click">
+            <Button x:Name="Add_Contacts" Content="Добавить средство связи" HorizontalAlignment="Left" Height="56" Margin="39,22,0,0" VerticalAlignment="Top" Width="1160" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Grid.Row="1" Grid.ColumnSpan="2" Click="Add_WindowData_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -80,13 +80,10 @@
                 </Button.Style>
             </Button>
             <Grid x:Name="Record_contact" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="75" Margin="0,19,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1238" Visibility="Hidden">
-                <Label x:Name="Record_Number_Text" Content="+375298881111" HorizontalAlignment="Left" Height="55" Margin="408,0,0,0" VerticalAlignment="Bottom" Width="297" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
-                <Label x:Name="Record_Number_Label" Content="Номер телефона" HorizontalAlignment="Left" Height="55" Margin="10,0,0,0" VerticalAlignment="Bottom" Width="434" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
-            </Grid>
-
-            <Grid x:Name="Record_address" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="75" Margin="0,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1238" Visibility="Hidden">
-                <Label x:Name="Record_Address_Text" Content="Республика Беларусь, г. Валуйки ул. Темная дом 6 кв. 33" HorizontalAlignment="Left" Height="55" Margin="405,0,0,0" VerticalAlignment="Bottom" Width="695" FontSize="20" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
-                <Label x:Name="Record_Address_Label" Content="Адрес" HorizontalAlignment="Left" Height="55" Margin="10,0,0,0" VerticalAlignment="Bottom" Width="430" FontSize="20" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+                <Label x:Name="Record_Number_Text" Content="NULL" HorizontalAlignment="Left" Height="55" Margin="293,0,0,0" VerticalAlignment="Bottom" Width="297" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+                <Label x:Name="Record_Address_Text" Content="NULL" HorizontalAlignment="Left" Height="55" Margin="293,0,0,-60" VerticalAlignment="Bottom" Width="695" FontSize="20" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+                <Label x:Name="Record_Number_Label" Content="Номер телефона" HorizontalAlignment="Left" Height="55" Margin="10,0,0,0" VerticalAlignment="Bottom" Width="256" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+                <Label x:Name="Record_Address_Label" Content="Адрес" HorizontalAlignment="Left" Height="55" Margin="10,0,0,-60" VerticalAlignment="Bottom" Width="256" FontSize="20" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
             </Grid>
 
         </Grid>
@@ -102,18 +99,18 @@
             <TextBox x:Name="Negative_Text" HorizontalAlignment="Left" Height="43" Margin="315,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="3" TextChanged="Negative_Text_TextChanged" TabIndex="1"/>
             <TextBox x:Name="Rating_Text" HorizontalAlignment="Left" Height="43" Margin="315,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="4" TextChanged="Rating_Text_TextChanged" TabIndex="1"/>
         </Grid>
-        <Grid x:Name="Grid_4" HorizontalAlignment="Left" Height="486" Margin="0,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1268" Background="#00000000">
-            <Grid x:Name="Record_Auto" Background="#B2000000" Margin="0,43,0,149">
+        <Grid x:Name="Grid_4" HorizontalAlignment="Left" Height="486" Margin="0,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1268" Background="#00000000" Visibility="Hidden">
+            <Grid x:Name="Record_Auto" Background="#B2000000" Margin="0,43,0,149" Visibility="Hidden">
+                <Label x:Name="Model_Label_Answer" Content="NULL" HorizontalAlignment="Left" Height="43" Margin="280,29,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Marka_Label_Answer" Content="NULL" HorizontalAlignment="Left" Height="43" Margin="280,93,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Gos_Label_Answer" Content="NULL" HorizontalAlignment="Left" Height="43" Margin="280,161,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="ColorAuto_Label_Answer" Content="NULL" HorizontalAlignment="Left" Height="43" Margin="280,229,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
                 <Label x:Name="Model_Label" Content="Модель" HorizontalAlignment="Left" Height="43" Margin="27,29,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Model_Text" HorizontalAlignment="Left" Height="43" Margin="280,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="941" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="64" TextChanged="Model_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Marka_Label" Content="Марка автомобиля" HorizontalAlignment="Left" Height="43" Margin="27,95,0,0" VerticalAlignment="Top" Width="205" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Marka_Text" HorizontalAlignment="Left" Height="43" Margin="280,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="20" TextChanged="Marka_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Gos_Label" Content="Гос номер" HorizontalAlignment="Left" Height="43" Margin="27,163,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Gos_Text" HorizontalAlignment="Left" Height="43" Margin="280,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="15" TextChanged="Gos_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="ColorAuto_Label" Content="Цвет автомобиля" HorizontalAlignment="Left" Height="42" Margin="27,232,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="ColorAuto_Text" HorizontalAlignment="Left" Height="42" Margin="280,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="24" TextChanged="ColorAuto_Text_TextChanged" TabIndex="1"/>
             </Grid>
-            <Button x:Name="Button_Data_Auto_Add" Content="Добавить еще данные другого автомобиля" HorizontalAlignment="Center" Height="56" Margin="0,360,0,0" VerticalAlignment="Top" Width="1200" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Button_Data_Auto_Add_Click" IsEnabled="False">
+            <Button x:Name="Button_Data_Auto_Add" Content="Добавить данные автомобиля" HorizontalAlignment="Center" Height="56" Margin="0,10,0,0" VerticalAlignment="Top" Width="1200" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Add_WindowData_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -126,19 +123,19 @@
             </Button>
         </Grid>
         <Grid x:Name="Grid_5" Margin="0,54,0,18" Grid.Row="1" Visibility="Hidden">
-            <Grid x:Name="Record_Credits" Background="#B2000000" Margin="0,0,0,197">
+            <Grid x:Name="Record_Credits" Background="#B2000000" Margin="0,0,0,197" Visibility="Hidden">
+                <Label x:Name="Org_Text" Content="" HorizontalAlignment="Left" Height="43" Margin="280,10,0,0" VerticalAlignment="Top" Width="988" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Type_Text" Content="" HorizontalAlignment="Left" Height="43" Margin="280,56,0,0" VerticalAlignment="Top" Width="988" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Summa_Text" Content="" HorizontalAlignment="Left" Height="43" Margin="280,106,0,0" VerticalAlignment="Top" Width="988" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Payment_Text" Content="" HorizontalAlignment="Left" Height="43" Margin="280,151,0,0" VerticalAlignment="Top" Width="988" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
+                <Label x:Name="Date_Payment_Text" Content="" HorizontalAlignment="Left" Height="43" Margin="280,201,0,0" VerticalAlignment="Top" Width="988" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
                 <Label x:Name="Org_Label" Content="Банк (Организация)" HorizontalAlignment="Left" Height="43" Margin="27,10,0,0" VerticalAlignment="Top" Width="248" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Org_Text" HorizontalAlignment="Left" Height="43" Margin="280,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="673" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="48" TextChanged="Org_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Type_Label" Content="Тип кредита" HorizontalAlignment="Left" Height="43" Margin="27,56,0,0" VerticalAlignment="Top" Width="205" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Type_Text" HorizontalAlignment="Left" Height="43" Margin="280,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="32" TextChanged="Type_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Summa_Label" Content="Сумма кредита" HorizontalAlignment="Left" Height="43" Margin="27,106,0,0" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Summa_Text" HorizontalAlignment="Left" Height="43" Margin="280,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="11" TextChanged="Summa_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Payment_Label" Content="Ежемесячный платеж" HorizontalAlignment="Left" Height="42" Margin="27,154,0,0" VerticalAlignment="Top" Width="248" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Payment_Text" HorizontalAlignment="Left" Height="42" Margin="280,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="11" TextChanged="Payment_Text_TextChanged" TabIndex="1"/>
                 <Label x:Name="Date_last_Pay_Label" Content="Последний платеж" HorizontalAlignment="Left" Height="42" Margin="27,201,0,0" VerticalAlignment="Top" Width="248" FontSize="20" Foreground="White" FontFamily="Cascadia Mono"/>
-                <TextBox x:Name="Date_last_Pay_Year_Text" HorizontalAlignment="Left" Height="42" Margin="280,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="4" TextChanged="Date_last_Pay_Year_Text_TextChanged" TabIndex="1"/>
             </Grid>
-            <Button x:Name="Button_Data_Credits_Add" Content="Добавить еще данные другого кредита" HorizontalAlignment="Center" Height="56" Margin="0,270,0,0" VerticalAlignment="Top" Width="1198" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Button_Data_Credits_Add_Click" IsEnabled="False">
+            <Button x:Name="Button_Data_Credits_Add" Content="Добавить данные кредита" HorizontalAlignment="Center" Height="56" Margin="0,10,0,0" VerticalAlignment="Top" Width="1198" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Add_WindowData_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -149,8 +146,6 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <TextBox x:Name="Date_last_Pay_Month_Text" HorizontalAlignment="Left" Height="42" Margin="391,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="2" TextChanged="Date_last_Pay_Month_Text_TextChanged" TabIndex="1"/>
-            <TextBox x:Name="Date_last_Pay_Day_Text" HorizontalAlignment="Left" Height="42" Margin="444,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Foreground="#FFF3F3F3" OpacityMask="Black" Background="Transparent" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="10" TextChanged="Date_last_Pay_Day_Text_TextChanged" TabIndex="1"/>
 
         </Grid>
         <Button x:Name="Button_Contacts" Content="Контакты" HorizontalAlignment="Left" Height="56" Margin="301,200,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Button_Contacts_Click">
@@ -216,27 +211,62 @@
         </Button>
         <Label x:Name="PlaceHoldPush" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Content="Заполните обязательные поля" HorizontalAlignment="Center" Height="44" VerticalAlignment="Center" Width="1160" FontSize="24" FontFamily="Cascadia Mono SemiBold" Foreground="#FFFAD900"/>
         <Button x:Name="Button_Generals" Content="Основное" HorizontalAlignment="Left" Height="56" Margin="59,200,0,0" VerticalAlignment="Top" Width="188" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FFB3FF01" Click="Button_Generals_Click"/>
-        <Grid x:Name="Grid_Block" HorizontalAlignment="Center" Height="768" Margin="0,4,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="1278" Background="#ED000000" Visibility="Hidden">
-            <Grid x:Name="Grid_Contacts" HorizontalAlignment="Center" Height="485" Margin="0,139,0,0" VerticalAlignment="Top" Width="640">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FF2D2C2C" Offset="1"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Label Content="Номер телефона" HorizontalAlignment="Left" Height="55" Margin="29,0,0,382" VerticalAlignment="Bottom" Width="254" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
-                <Label Content="Адрес" HorizontalAlignment="Left" Height="55" Margin="31,0,0,290" VerticalAlignment="Bottom" Width="269" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
-                <Button x:Name="Button_Add" Content="Button" HorizontalAlignment="Left" Height="60" Margin="13,415,0,0" VerticalAlignment="Top" Width="285" FontSize="20" FontFamily="Cascadia Mono SemiBold" Background="#FF27CB00" Click="Button_Add_Click"/>
-                <Button x:Name="Button_Cancel" Content="Button" HorizontalAlignment="Left" Height="60" Margin="345,415,0,0" VerticalAlignment="Top" Width="285" FontSize="20" FontFamily="Cascadia Mono SemiBold" Background="#FFD61F1F" Foreground="White" Click="Button_Cancel_Click"/>
-                <TextBox x:Name="Text_Phone" HorizontalAlignment="Left" Height="56" Margin="288,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="14" IsUndoEnabled="False" TextChanged="Text_Phone_TextChanged"/>
-                <TextBox x:Name="Text_Address" HorizontalAlignment="Left" Height="191" Margin="31,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="589" Background="Transparent" Foreground="White" FontSize="20" FontFamily="Cascadia Mono SemiBold" MaxLength="64" TextChanged="Text_Address_TextChanged_1"/>
-            </Grid>
-
-
+        <Grid x:Name="Grid_Block" HorizontalAlignment="Center" Height="768" Margin="0,4,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="1278" Background="#ED000000" Panel.ZIndex="1" Visibility="Hidden"/>
+        <Grid x:Name="Grid_Window_Contacts" HorizontalAlignment="Center" Height="485" Margin="0,139,0,0" VerticalAlignment="Top" Width="640" Panel.ZIndex="2" Grid.RowSpan="2" Visibility="Hidden">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF2D2C2C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Content="Номер телефона" HorizontalAlignment="Left" Height="55" Margin="29,0,0,382" VerticalAlignment="Bottom" Width="254" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Адрес" HorizontalAlignment="Left" Height="55" Margin="31,0,0,290" VerticalAlignment="Bottom" Width="269" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Button x:Name="Button_Add" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="13,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FF27CB00" Click="Button_Add_Click"/>
+            <Button x:Name="Button_Cancel" Content="Отмена" HorizontalAlignment="Left" Height="60" Margin="345,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FFD61F1F" Foreground="White" Click="Button_Cancel_Click"/>
+            <TextBox x:Name="Text_Phone" HorizontalAlignment="Left" Height="56" Margin="288,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="14" IsUndoEnabled="False" TextChanged="Text_Phone_TextChanged"/>
+            <TextBox x:Name="Text_Address" HorizontalAlignment="Left" Height="191" Margin="31,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="589" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="64" TextChanged="Text_Address_TextChanged_1"/>
         </Grid>
+        <Grid x:Name="Grid_Window_Auto" HorizontalAlignment="Center" Height="485" Margin="0,139,0,0" VerticalAlignment="Top" Width="640" Grid.RowSpan="2" Visibility="Hidden" Panel.ZIndex="2">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF2D2C2C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Content="Модель" HorizontalAlignment="Left" Height="55" Margin="13,0,0,382" VerticalAlignment="Bottom" Width="254" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Марка автомобиля" HorizontalAlignment="Left" Height="55" Margin="10,0,0,322" VerticalAlignment="Bottom" Width="288" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Госномер" HorizontalAlignment="Left" Height="55" Margin="10,187,0,0" VerticalAlignment="Top" Width="254" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Цвет автомобиля" HorizontalAlignment="Left" Height="55" Margin="13,0,0,163" VerticalAlignment="Bottom" Width="268" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight" RenderTransformOrigin="0.513,0.83"/>
+            <Button x:Name="Button_Add_Auto" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="13,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FF27CB00" Click="Button_Add_Click"/>
+            <Button x:Name="Button_Cancel_Auto" Content="Отмена" HorizontalAlignment="Left" Height="60" Margin="345,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FFD61F1F" Foreground="White" Click="Button_Cancel_Click"/>
+            <TextBox x:Name="Text_Model" HorizontalAlignment="Left" Height="56" Margin="303,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="48" IsUndoEnabled="False" TextChanged="Text_Model_TextChanged"/>
+            <TextBox x:Name="Text_Marka" HorizontalAlignment="Left" Height="56" Margin="303,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="32" TextChanged="Text_Marka_TextChanged_1"/>
+            <TextBox x:Name="Text_Gos" HorizontalAlignment="Left" Height="56" Margin="303,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="15" IsUndoEnabled="False" TextChanged="Text_Gos_TextChanged"/>
+            <TextBox x:Name="Text_ColorAuto" HorizontalAlignment="Left" Height="56" Margin="303,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="32" TextChanged="Text_ColorAuto_TextChanged_1"/>
+        </Grid>
+        <Grid x:Name="Grid_Window_Credits" HorizontalAlignment="Center" Height="485" Margin="0,139,0,0" VerticalAlignment="Top" Width="950" Grid.RowSpan="2" Visibility="Hidden" Panel.ZIndex="2">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF2D2C2C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBox x:Name="Text_Org" HorizontalAlignment="Left" Height="56" Margin="378,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="562" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="64" IsUndoEnabled="False" TextChanged="Text_Org_TextChanged"/>
+            <TextBox x:Name="Text_Type" HorizontalAlignment="Left" Height="56" Margin="378,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="562" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="40" TextChanged="Text_Type_TextChanged_1"/>
+            <TextBox x:Name="Text_Summa" HorizontalAlignment="Left" Height="56" Margin="378,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="403" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="12" IsUndoEnabled="False" TextChanged="Text_Summa_TextChanged"/>
+            <TextBox x:Name="Text_Payment" HorizontalAlignment="Left" Height="56" Margin="378,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="403" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="12" TextChanged="Text_Payment_TextChanged_1"/>
+            <TextBox x:Name="Text_Date_Year" HorizontalAlignment="Left" Height="56" Margin="378,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="4" IsUndoEnabled="False" TextChanged="Text_Date_Year_TextChanged"/>
+            <TextBox x:Name="Text_Date_month" HorizontalAlignment="Left" Height="56" Margin="560,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="2" TextChanged="Text_Date_month_TextChanged_1"/>
+            <TextBox x:Name="Text_Date_Day" HorizontalAlignment="Left" Height="56" Margin="673,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Background="Transparent" Foreground="White" FontSize="28" FontFamily="Cascadia Mono SemiBold" MaxLength="2" IsUndoEnabled="False" TextChanged="Text_Date_Day_TextChanged"/>
+            <Label Content="Банк (Организация)" HorizontalAlignment="Left" Height="55" Margin="10,0,0,409" VerticalAlignment="Bottom" Width="363" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Тип кредита" HorizontalAlignment="Left" Height="55" Margin="10,0,0,342" VerticalAlignment="Bottom" Width="269" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Label Content="Сумма кредита" HorizontalAlignment="Left" Height="55" Margin="10,143,0,0" VerticalAlignment="Top" Width="254" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight" RenderTransformOrigin="0.513,0.39"/>
+            <Label Content="Ежемесячный платеж" HorizontalAlignment="Left" Height="55" Margin="10,0,0,218" VerticalAlignment="Bottom" Width="363" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight" RenderTransformOrigin="0.451,0.575"/>
+            <Label Content="Последний платеж" HorizontalAlignment="Left" Height="56" Margin="10,0,0,157" VerticalAlignment="Bottom" Width="363" FontSize="28" Foreground="White" FontFamily="Cascadia Code SemiLight"/>
+            <Button x:Name="Button_Add_Credits" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="10,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FF27CB00" Click="Button_Add_Click"/>
+            <Button x:Name="Button_Cancel_Credits" Content="Отмена" HorizontalAlignment="Left" Height="60" Margin="655,415,0,0" VerticalAlignment="Top" Width="285" FontSize="28" FontFamily="Cascadia Mono SemiBold" Background="#FFD61F1F" Foreground="White" Click="Button_Cancel_Click"/>
 
-
-
-
+            <Grid/>
+        </Grid>
     </Grid>
 </Window>

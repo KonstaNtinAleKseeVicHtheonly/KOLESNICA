@@ -110,27 +110,51 @@ namespace DataCommandTest
                 ];
             for (int next = 0; next < grids!.Count; next++) 
             {
-                if (next == 1 || next == 3 || next == 4)
+                Queue<TextBox> fieldsTB;
+                Queue<Label> fieldsLB;
+                switch (next)
                 {
-                    Queue<Label> fields = [];
+                    case 0:
+                    case 2:
+                        fieldsTB = [];
+                        foreach (var item in grids[next].Children)
+                        {
+                            if (item is TextBox box)
+                                fieldsTB.Enqueue(box);
+                        }
+                        Push_Data.Push_Data_New(fieldsTB, userData[next], files[next]);
+                        break;
+                    case 1:
+                        fieldsLB = [];
+                        foreach (var item in grids[next].Children.OfType<Grid>().First().Children)
+                        {
+                            if (item is Label box)
+                                fieldsLB.Enqueue(box);
+                        }
+                        Push_Data.Push_Data_New(fieldsLB, userData[next], files[next]);
+                        break;
+                    case 3:
+                        fieldsLB = [];
 
-                    foreach (var item in grids[next].Children)
-                    {
-                        if (item is Label box)
-                            fields.Enqueue(box);
-                    }
-                    Push_Data.Push_Data_New(fields, userData[next], files[next]);
-                }
-                else
-                {
-                    Queue<TextBox> fields = [];
+                        foreach (var item in grids[next].Children.OfType<Grid>().First().Children)
+                        {
+                            if (item is Label box)
+                                fieldsLB.Enqueue(box);
+                        }
+                        Push_Data.Push_Data_New(fieldsLB, userData[next], files[next]);
+                        break;
+                    case 4:
+                        fieldsLB = [];
 
-                    foreach (var item in grids[next].Children)
-                    {
-                        if (item is TextBox box)
-                            fields.Enqueue(box);
-                    }
-                    Push_Data.Push_Data_New(fields, userData[next], files[next]);
+                        foreach (var item in grids[next].Children.OfType<Grid>().First().Children)
+                        {
+                            if (item is Label box)
+                                fieldsLB.Enqueue(box);
+                        }
+                        Push_Data.Push_Data_New(fieldsLB, userData[next], files[next]);
+                        break;
+                    default:
+                        break;
                 }
             }
             
@@ -141,10 +165,7 @@ namespace DataCommandTest
                 MessageBoxImage.Information
                 );
         }
-        private void Add_Contacts_Click(object sender, RoutedEventArgs e)
-        {
-            Grid_Block.Visibility = Visibility.Visible;
-        }
+        
         private void Button_Generals_Click(object sender, RoutedEventArgs e)
         {
             cond_gr!.Change_grid(Button_Generals, Grid_1);
@@ -153,6 +174,27 @@ namespace DataCommandTest
         {
             cond_gr!.Change_grid(Button_Contacts, Grid_2);
         }
+        private void Add_WindowData_Click(object sender, RoutedEventArgs e)
+        {
+            var itemButton = sender as Button;
+            Grid? grid = itemButton!.Parent as Grid;
+            Grid_Block.Visibility = Visibility.Visible;
+            switch (grid!.Name)
+            {
+                case "Grid_2":
+                    Grid_Window_Contacts.Visibility = Visibility.Visible;
+                    break;
+                case "Grid_4":
+                    Grid_Window_Auto.Visibility = Visibility.Visible;
+                    break;
+                case "Grid_5":
+                    Grid_Window_Credits.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         private void Text_Phone_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Шаблон номера
@@ -164,33 +206,49 @@ namespace DataCommandTest
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
         }
-        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Grid_Block.Visibility = Visibility.Hidden;
-        }
+        
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            Queue<Label> queue = [];
-            queue.Enqueue(Record_Number_Text);
-            queue.Enqueue(Record_Address_Text);
-
-            foreach (var item in Grid_Contacts.Children)
+            var itemButton = sender as Button;
+            Grid? grid = itemButton!.Parent as Grid;
+            switch (grid!.Name)
             {
-                if (item is TextBox)
-                {
-                    var item_ = item as TextBox;
-                    if (item_!.Background.ToString() == BackField.ChangeColorHex("#66FFAFAF").ToString())
-                        return;
-                    else
-                        queue.Dequeue().Content = item_.Text;
-                }
-                    
+                case "Grid_Window_Contacts":
+                    DataWindow.Add_Data_From_Window(grid, Grid_2.Children.OfType<Grid>().First().Children.OfType<Label>().ToList()[..2]);
+                    grid!.Visibility = Visibility.Hidden;
+                    Grid_Block.Visibility = Visibility.Hidden;
+                    Record_contact.Visibility = Visibility.Visible;
+                    Add_Contacts.Visibility = Visibility.Hidden;
+                    break;
+                case "Grid_Window_Auto":
+                    DataWindow.Add_Data_From_Window(grid, Grid_4.Children.OfType<Grid>().First().Children.OfType<Label>().ToList()[..4]);
+                    grid!.Visibility = Visibility.Hidden;
+                    Grid_Block.Visibility = Visibility.Hidden;
+                    Record_Auto.Visibility = Visibility.Visible;
+                    Button_Data_Auto_Add.Visibility = Visibility.Hidden;
+                    break;
+                case "Grid_Window_Credits":
+                    DataWindow.Add_Data_From_Window(grid, Grid_5.Children.OfType<Grid>().First().Children.OfType<Label>().ToList()[..5]);
+                    grid!.Visibility = Visibility.Hidden;
+                    Grid_Block.Visibility = Visibility.Hidden;
+                    Record_Credits.Visibility = Visibility.Visible;
+                    Button_Data_Credits_Add.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    break;
             }
+            grid!.Visibility = Visibility.Hidden;
             Grid_Block.Visibility = Visibility.Hidden;
             Record_contact.Visibility = Visibility.Visible;
-            Record_address.Visibility = Visibility.Visible;
             Add_Contacts.Margin = new Thickness(175); // ISSUE! DYNAMIC ADD
             Add_Contacts.IsEnabled = false;
+        }
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            var itemButton = sender as Button;
+            Grid? grid = itemButton!.Parent! as Grid;
+            grid!.Visibility = Visibility.Hidden;
+            Grid_Block.Visibility = Visibility.Hidden;
         }
         private void Button_Work_Click(object sender, RoutedEventArgs e)
         {
@@ -234,97 +292,85 @@ namespace DataCommandTest
         {
             cond_gr!.Change_grid(Button_Auto, Grid_4);
         }
-        private void Model_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Model_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Model_Text.Background = Check_Fields.CheckOnlyLetters(Model_Text.Text) ||
-                Check_Fields.CheckOnlyNumbers(Model_Text.Text, "- ") ?
+            Text_Model.Background = Check_Fields.CheckOnlyLetters(Text_Model.Text) ||
+                Check_Fields.CheckOnlyNumbers(Text_Model.Text, "- ") ?
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Marka_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Marka_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            Marka_Text.Background = Check_Fields.CheckOnlyLetters(Marka_Text.Text) ||
-                Check_Fields.CheckOnlyNumbers(Marka_Text.Text, "- ") ?
+            Text_Marka.Background = Check_Fields.CheckOnlyLetters(Text_Marka.Text) ||
+                Check_Fields.CheckOnlyNumbers(Text_Marka.Text, "- ") ?
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Gos_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Gos_TextChanged(object sender, TextChangedEventArgs e)
         {
             // TEMPLATE
         }
 
-        private void ColorAuto_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_ColorAuto_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            ColorAuto_Text.Background = Check_Fields.CheckOnlyLetters(ColorAuto_Text.Text) ||
-                Check_Fields.CheckOnlyNumbers(ColorAuto_Text.Text, "-") ?
+            Text_ColorAuto.Background = Check_Fields.CheckOnlyLetters(Text_ColorAuto.Text) ||
+                Check_Fields.CheckOnlyNumbers(Text_ColorAuto.Text, "-") ?
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
-
-        private void Button_Data_Auto_Add_Click(object sender, RoutedEventArgs e)
-        {
-            // NOT REALIZATION
-        }
-
         private void Button_Credits_Click(object sender, RoutedEventArgs e)
         {
             cond_gr!.Change_grid(Button_Credits, Grid_5);
         }
-
-        private void Org_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Org_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Org_Text.Background = Check_Fields.CheckOnlyLetters(Org_Text.Text) ||
-                Check_Fields.CheckOnlyNumbers(Org_Text.Text, "- ") ?
+            Text_Org.Background = Check_Fields.CheckOnlyLetters(Text_Org.Text) ||
+                Check_Fields.CheckOnlyNumbers(Text_Org.Text, "- ") ?
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Type_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Type_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            Type_Text.Background = Check_Fields.CheckOnlyLetters(Type_Text.Text) ||
-                Check_Fields.CheckOnlyNumbers(Type_Text.Text, "- ") ?
+            Text_Type.Background = Check_Fields.CheckOnlyLetters(Text_Type.Text) ||
+                Check_Fields.CheckOnlyNumbers(Text_Type.Text, "- ") ?
                 BackField.ChangeColorHex("#00FFFFFF") :
                 BackField.ChangeColorHex("#66FFAFAF");
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Summa_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Summa_TextChanged(object sender, TextChangedEventArgs e)
         {
             // TEMPLATE
         }
 
-        private void Payment_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Payment_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             // TEMPLATE
         }
 
-        private void Date_last_Pay_Year_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Date_Year_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Check_Date.Check_Date_Valid_Year(Date_last_Pay_Year_Text, Date_last_Pay_Month_Text, Date_last_Pay_Day_Text);
+            Check_Date.Check_Date_Valid_Year(Text_Date_Year, Text_Date_month, Text_Date_Day);
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Date_last_Pay_Month_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Date_month_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            Check_Date.Check_Date_Valid_Month(Date_last_Pay_Month_Text, Date_last_Pay_Day_Text);
+            Check_Date.Check_Date_Valid_Month(Text_Date_month, Text_Date_Day);
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
         }
 
-        private void Date_last_Pay_Day_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Text_Date_Day_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Check_Date.Check_Date_Valid_Day(Date_last_Pay_Year_Text, Date_last_Pay_Month_Text, Date_last_Pay_Day_Text);
+            Check_Date.Check_Date_Valid_Day(Text_Date_Year, Text_Date_month, Text_Date_Day);
             Push.Visibility = CheckErrorsFields.CheckReds(grids!, PlaceHoldPush) ? Visibility : Visibility.Hidden;
-        }
-
-        private void Button_Data_Credits_Add_Click(object sender, RoutedEventArgs e)
-        {
-            // NOT REALIZATION
         }
     }
 }

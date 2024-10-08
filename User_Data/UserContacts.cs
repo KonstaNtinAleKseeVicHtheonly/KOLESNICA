@@ -20,8 +20,8 @@ namespace DataCommandTest.User_Data
         }
         public override void SetData(Queue<Label> fields)
         {
-            NumberPhone = fields.Dequeue().Content.ToString() ?? "NULL";
-            Address = fields.Dequeue().Content.ToString() ?? "NULL";
+            NumberPhone = fields.Dequeue().Content.ToString() ?? null;
+            Address = fields.Dequeue().Content.ToString() ?? null;
         }
     }
 }

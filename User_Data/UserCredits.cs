@@ -23,14 +23,17 @@ namespace DataCommandTest.User_Data
         }
         public override void SetData(Queue<Label> fields)
         {
-            Org = fields.Dequeue().Content.ToString() ?? "NULL";
-            Type = fields.Dequeue().Content.ToString() ?? "NULL";
-            Summa = Convert.ToDouble(fields.Dequeue().Content.ToString());
-            Payment = Convert.ToDouble(fields.Dequeue().Content.ToString());
-            string DateY = fields.Dequeue().Content.ToString(); //
-            string DateM = fields.Dequeue().Content.ToString(); //
-            string DateD = fields.Dequeue().Content.ToString(); //
-            DateLastPayment = DateY != string.Empty ? DateTime.ParseExact($"{DateY}-{DateM}-{DateD}", "yyyy-M-d", null) : null;
+            Org = fields.Dequeue().Content.ToString() ?? null;
+            Type = fields.Dequeue().Content.ToString() ?? null;
+
+            string? sumString = fields.Dequeue().Content.ToString();
+            Summa = sumString == string.Empty ? 0 : Convert.ToDouble(sumString);
+
+            string? payString = fields.Dequeue().Content.ToString();
+            Payment = payString == string.Empty ? 0 : Convert.ToDouble(payString);
+
+            string? date = fields.Dequeue().Content.ToString(); //
+            DateLastPayment = date == string.Empty ? null : DateTime.ParseExact($"{date}", "yyyy-M-d", null);
             
         }
     }

@@ -22,10 +22,10 @@ namespace DataCommandTest.User_Data
         }
         public override void SetData(Queue<Label> fields)
         {
-            Model = fields.Dequeue().Content.ToString() ?? "NULL";
-            Marka = fields.Dequeue().Content.ToString() ?? "NULL";
-            Gos = fields.Dequeue().Content.ToString() ?? "NULL";
-            ColorAuto = fields.Dequeue().Content.ToString() ?? "NULL";
+            Model = fields.Dequeue().Content.ToString() ?? null;
+            Marka = fields.Dequeue().Content.ToString() ?? null;
+            Gos = fields.Dequeue().Content.ToString() ?? null;
+            ColorAuto = fields.Dequeue().Content.ToString() ?? null;
         }
     }
 }

@@ -26,9 +26,17 @@ namespace DataCommandTest.User_Data
         {
             Doljnost = fields.Dequeue().Text ?? "NULL";
             Otdel = fields.Dequeue().Text ?? "NULL";
-            Positive = Convert.ToDouble(fields.Dequeue().Text);
-            Negative = Convert.ToDouble(fields.Dequeue().Text);
-            Rating = Convert.ToDouble(fields.Dequeue().Text);
+
+            string? posString = fields.Dequeue().Text;
+            Positive = posString == string.Empty ? 0 : Convert.ToDouble(posString);
+
+            string? negString = fields.Dequeue().Text;
+            Negative = negString == string.Empty ? 0 : Convert.ToDouble(negString);
+
+            string? ratString = fields.Dequeue().Text;
+            Rating = ratString == string.Empty ? 0 : Convert.ToDouble(ratString);
+
+
         }
     }
 }
