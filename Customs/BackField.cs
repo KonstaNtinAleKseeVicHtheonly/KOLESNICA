@@ -6,7 +6,6 @@ namespace DataCommandTest.Customs
 {
     internal class BackField
     {
-        // #00 AF 12 B3
         public static SolidColorBrush ChangeColorHex(string hex)
         {
             if (hex[0] == '#' && hex.Length == 9)
