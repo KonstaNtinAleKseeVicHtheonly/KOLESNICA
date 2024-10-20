@@ -1,7 +1,9 @@
 ﻿using DataCommandTest.Manage;
 using DataCommandTest.User_Data;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,7 +46,10 @@ namespace DataCommandTest
             else
             {
                 Push_Data.Push_Data_Record(this, "AddUserRecord.json");
-                // Отправляем джейсон на вставку (ПРОЦЕСС)
+                POSTGRE_DATA.Push_into_db(
+                    "\"D:\\@Projects С#\\AUTONOMUS\\main\\DataCommandTest\\bin\\Debug\\net8.0-windows\\venv\\Scripts\\python.exe\"",
+                    @"D:\@Projects С#\AUTONOMUS\main\DataCommandTest\bin\Debug\net8.0-windows\add_record_reg.py"
+                    );
             }
             return true;
         }
