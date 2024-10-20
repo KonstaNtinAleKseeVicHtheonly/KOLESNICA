@@ -1,0 +1,52 @@
+﻿<Window x:Name="Add_User_Window" x:Class="DataCommandTest.NEW_RECORD_USER.AddRecordUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataCommandTest.NEW_RECORD_USER"
+        mc:Ignorable="d"
+        Title="AddRecordUser" Height="450" Width="800">
+    <Grid x:Name="Grid_Add_User">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF262626" Offset="0.623"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="Mode" Content="Добавление новой учетной записи" HorizontalAlignment="Center" Height="67" Margin="0,68,0,0" VerticalAlignment="Top" Width="672" FontSize="36" FontFamily="Cascadia Mono SemiBold" Foreground="White"/>
+        <Button x:Name="Button_Cancel" Content="Отмена" HorizontalAlignment="Left" Height="56" Margin="112,208,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FFBB2C0D" Click="Button_Cancel_Click" Grid.Row="1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#BFE3BD00"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="Button_Add" Content="Добавить" HorizontalAlignment="Left" Height="56" Margin="463,208,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Button_Add_Click" Grid.Row="1" IsEnabled="False">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#BFE3BD00"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Label Content="Новый логин" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono" Margin="144,39,0,0" Grid.Row="1"/>
+        <Label Content="Новый пароль" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono" Margin="144,101,0,0" Grid.Row="1"/>
+        <TextBox x:Name="Login_text" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Foreground="#FFF3F3F3" OpacityMask="Black" Background="#66FFAFAF" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="24" TextChanged="Login_text_TextChanged" MaxLines="1" TabIndex="7" Margin="359,39,0,0" Grid.Row="1"/>
+        <TextBox x:Name="Password_text" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Foreground="#00F3F3F3" OpacityMask="Black" Background="#66FFB2AF" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="24" TextChanged="Password_text_TextChanged" MaxLines="1" TabIndex="7" Margin="359,101,0,0" Grid.Row="1"/>
+    </Grid>
+</Window>

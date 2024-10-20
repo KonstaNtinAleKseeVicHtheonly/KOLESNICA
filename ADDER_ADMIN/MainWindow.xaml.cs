@@ -42,5 +42,14 @@ namespace DataCommandTest
                 }
             }
         }
+
+        private void Exit_Add_Click(object sender, RoutedEventArgs e)
+        {
+            Menu window = new()
+            {
+                Owner = this
+            };
+            SwitchWindows.ActionSwitch(Window_Adder, window);
+        }
     }
 }

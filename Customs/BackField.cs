@@ -26,5 +26,10 @@ namespace DataCommandTest.Customs
             for (int i = 0; i < counter; i++) 
                 textBox.Dequeue().Background = brushes;
         }
+
+        public static void ShowStars(TextBox tb)
+        {
+
+        }
     }
 }

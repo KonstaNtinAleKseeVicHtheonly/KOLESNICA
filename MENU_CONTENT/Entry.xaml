@@ -1,0 +1,43 @@
+﻿<Window x:Name="Menu_Window" x:Class="DataCommandTest.Entry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataCommandTest"
+        mc:Ignorable="d"
+        Title="Entry" Height="450" Width="800">
+    <Grid x:Name="Grid_Enter">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF262626" Offset="0.623"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Логин" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono" Margin="154,10,0,0" Grid.Row="1"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="187" FontSize="20" Foreground="White" FontFamily="Cascadia Mono" Margin="154,72,0,0" Grid.Row="1"/>
+        <TextBox x:Name="Login_text" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Foreground="#FFF3F3F3" OpacityMask="Black" Background="#66FFAFAF" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="24" TextChanged="Login_text_TextChanged" MaxLines="1" TabIndex="7" Margin="369,10,0,0" Grid.Row="1"/>
+        <TextBox x:Name="Password_text" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Foreground="#00F3F3F3" OpacityMask="Black" Background="#66FFAFAF" FontSize="26" FontFamily="Cascadia Mono" BorderBrush="White" MaxLength="24" TextChanged="Password_text_TextChanged" MaxLines="1" TabIndex="7" Margin="369,72,0,0" Grid.Row="1"/>
+        <Label x:Name="Title" Content="DATABASE COMMANDER Version 0.0.1" HorizontalAlignment="Left" Height="67" Margin="28,0,0,0" VerticalAlignment="Center" Width="738" FontSize="36" FontFamily="Cascadia Mono SemiBold" Foreground="White"/>
+        <Button x:Name="Button_Enter" HorizontalAlignment="Left" Height="56" Margin="243,144,0,0" VerticalAlignment="Top" Width="308" RenderTransformOrigin="0.798,0.554" FontSize="20" FontFamily="Cascadia Code SemiBold" Background="#FF0DBB24" Click="Button_Entry_Click" Grid.Row="1" IsEnabled="False" Content="Вход">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#BFE3BD00"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+        </Button>
+        <Label x:Name="Enter_Label" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Content="Введите логин и пароль" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="790" FontSize="20" FontFamily="Cascadia Mono SemiBold" Foreground="#FFFAD900" Margin="0,91,0,0"/>
+    </Grid>
+</Window>

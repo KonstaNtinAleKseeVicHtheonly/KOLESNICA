@@ -69,5 +69,12 @@ namespace DataCommandTest.Manage
                     break;
             }
         }
+        public static async void Push_Data_Record(Manage_User muser, string file)
+        {
+            if (File.Exists(file))
+                File.Delete(file);
+            using FileStream fs = new(file, FileMode.OpenOrCreate);
+            await JsonSerializer.SerializeAsync<Manage_User>(fs, (Manage_User)muser);
+        }
     }
 }
